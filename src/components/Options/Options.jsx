@@ -1,8 +1,8 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ClicksTracker from "../ClicksTracker/ClicksTracker";
-export default function Options ({ onLeaveFeedback }) {
-
+export default function Options ({ onLeaveFeedback, resetClicks, totalFeedback }) {
+ 
  //  const [clicks,  setClicks] = useState(0);
 // const updatelClick = () =>{
   //    setClicks(clicks + 1);
@@ -12,11 +12,13 @@ export default function Options ({ onLeaveFeedback }) {
    // ClicksTracker.setClicks(0);
   //  }
    // return (
+       
         return (
             <div>
               <button onClick={() => onLeaveFeedback('good')}>Good</button>
               <button onClick={() => onLeaveFeedback('neutral')}>Neutral</button>
               <button onClick={() => onLeaveFeedback('bad')}>Bad</button>
+              {totalFeedback >0 && <button onClick={() => resetClicks()}>Reset</button>}
             </div>
           );
      //  <div>
